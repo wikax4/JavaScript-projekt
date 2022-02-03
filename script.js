@@ -1,4 +1,4 @@
-var can = document.getElementById('gra');
+		var can = document.getElementById('gra');
 		var ctx = can.getContext('2d');
 		var GrafikaPlatformy = new Image();
 		GrafikaPlatformy.src = 'img/cloud.png';
@@ -180,9 +180,7 @@ var can = document.getElementById('gra');
 			}
 		}
 		
-		// function gif(){
-			
-		// }
+
 		function kolizjaZPrzeszkoda()
 		{
 			for (var i=0; i<przesz.length; i++)
