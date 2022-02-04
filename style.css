@@ -5,6 +5,13 @@ canvas
     background-size: cover;
     display: block;
     margin: 0 auto;
-    
+    height: 100vh;
+    width: 100vw;
+}
+
+html,body {
+    margin: 0;
+    padding: 0
+
 }
 

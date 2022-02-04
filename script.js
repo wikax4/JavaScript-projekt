@@ -1,8 +1,11 @@
 		var can = document.getElementById('gra');
 		var ctx = can.getContext('2d');
-		var GrafikaPlatformy = new Image();
+var punkty = 0;
+var GrafikaPlatformy = new Image();
 		GrafikaPlatformy.src = 'img/cloud.png';
 		var plat = [];
+
+
 		/* (x y wys szer) */
 		plat[0] = new Platforma(0, 500,750, 80);
 		plat[1] = new Platforma(730, 500,750, 80);
@@ -173,8 +176,10 @@
 				if(yPos < mon[i].y + mon[i].wys/2 &&
                  yPos + wysPos > mon[i].y + mon[i].wys/2 &&
                  xPos < mon[i].x + mon[i].szer/2&&
-                 xPos + szerPos > mon[i].x + mon[i].szer/2)
+                 xPos + szerPos > mon[i].x + mon[i].szer/2 && mon[i].czywidoczna )
                 {
+					punkty++;
+					rysyjlicznik();
                     mon[i].czywidoczna = false;
                 }
 			}
@@ -217,15 +222,26 @@
 				ctx.clearRect(0,0,can.width,can.height);
 				ctx.font = "120px Georgia";
 				ctx.fillStyle  = "white";
-				ctx.fillText("WYGRYWASZ", 200, 300);			
+				ctx.fillText("WYGRYWASZ", 200, 300);
+				ctx.font="40px Georgia"
+				ctx.fillText("Wynik: "+punkty, 350, 450);
 			}
 		}
 
-		
+		function  rysyjlicznik(){
+
+			ctx.font = "15px Georgia";
+			ctx.fillStyle  = "white";
+			ctx.fillText("Punkty: "+punkty +" /9", 50, 50);
+		}
+
+
+
 		function rysuj()
 		{
 			ctx.clearRect(0,0,can.width,can.height);
 			rysyjplatformy();
+			rysyjlicznik();
 			rysujmonety();
 			rysujprzeszkody();
 			ctx.drawImage(Grafikapostaci, xPos, yPos, szerPos, wysPos);
